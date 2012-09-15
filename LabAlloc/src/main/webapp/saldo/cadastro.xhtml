@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"  
+	xmlns:t="http://myfaces.apache.org/tomahawk">
+	
+	
+<h:head>
+	<link href="#{facesContext.externalContext.request.contextPath}/style.css" rel="stylesheet" type="text/css" />
+	<title>#{message.sistematitulo }</title>
+</h:head>
+<body>
+	<ui:composition template="/templates/layout_cadastro.xhtml">
+		<ui:define name="tituloConteudo">
+			<h:outputText value="Cadastro de Análise Crítica" styleClass="cssTextoTitulo" />
+			<rich:menuSeparator />
+		</ui:define>
+		<ui:define name="conteudo">
+			<h:form id="formCadastro" enctype="multipart/form-data">
+				<h:panelGrid columns="2">
+					<h:outputText id="erro" value="" />
+					<h:message for="erro" styleClass="css-messagem-erro" />
+					<h:outputText id="message" value="" />
+					<h:message for="message" styleClass="css-messagem-sucesso" />
+				</h:panelGrid>
+				
+				<h:panelGrid columns="2" width="100%">					
+					<p:fieldset legend="Cliente *">
+						<h:panelGrid columns="2" width="100%">
+           					<rich:select id="cliente" enableManualInput="true" value="#{beanAnaliseCritica.analiseCritica.cliente}" 
+                				defaultLabel="pesquisar cliente" requiredMessage="#{message.campoObrigatorio}" required="true">
+                			<f:selectItems value="#{beanAnaliseCritica.comboCliente}" />
+                			<f:converter converterId="SelectOneMenuConverter"/>
+                			</rich:select>
+                			<h:message for="cliente" styleClass="css-messagem-erro"/>
+        			</h:panelGrid>			
+				</p:fieldset>
+				<p:fieldset legend="Código da Análise Crítica *" >
+					<h:panelGrid columns="2" width="100%">
+						<h:inputText id="analise" value="#{beanAnaliseCritica.analiseCritica.codAnaliseCritica}" size="30" requiredMessage="#{message.campoObrigatorio}" required="true" readonly="true"/>
+						<rich:message for="analise" styleClass="css-messagem-erro"/>
+					</h:panelGrid>
+				</p:fieldset>
+			</h:panelGrid>			
+			<h:panelGrid width="100%">
+					<p:fieldset legend="Descrição Resumida do Serviço">
+					<h:panelGrid columns="2">
+						<h:inputTextarea id="descricao" style="resize: none;" cols="145" rows="5" value="#{beanAnaliseCritica.analiseCritica.descResumida}"/>
+						<rich:message for="descricao" styleClass="css-messagem-erro"/>
+					</h:panelGrid>
+				</p:fieldset>
+			</h:panelGrid>
+			
+			<h:panelGrid columns="2" width="100%">	
+					<p:fieldset  legend="Código do Edital *" style="height:60px;">
+					<h:panelGrid columns="2" width="100%">
+						<h:inputText id="edital" value="#{beanAnaliseCritica.analiseCritica.codEdital}" size="30" requiredMessage="#{message.campoObrigatorio}" required="true"/>
+						<rich:message for="edital" styleClass="css-messagem-erro"/>
+					</h:panelGrid>
+				</p:fieldset>		
+			
+			
+				<p:fieldset legend="Arquivo do Edital" style="height:60px;">
+					<h:panelGrid columns="2" width="100%">
+							<t:inputFileUpload id="arquivoAnexo" value="#{beanAnaliseCritica.arqEdital}" size="65" />
+							<rich:message for="arquivoAnexo" styleClass="css-messagem-erro" />
+						</h:panelGrid>							
+  				</p:fieldset>		
+			</h:panelGrid>
+			
+			
+				
+				<br /><br />
+				* Campos obrigatórios
+				<br /><br />
+				<h:commandButton value="Salvar e Fechar" action="#{beanAnaliseCritica.salvarEFechar }" />
+				<h:commandButton value="Cancelar" action="#{beanAnaliseCritica.cancelar }" immediate="true"/>
+			</h:form>
+						
+		</ui:define>
+	</ui:composition>
+</body>
+</html>

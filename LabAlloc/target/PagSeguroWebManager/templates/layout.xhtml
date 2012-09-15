@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<link
+		href="#{facesContext.externalContext.request.contextPath}/style.css"
+		rel="stylesheet" type="text/css" />
+	<title>PagSeguro Web Manager</title>
+</h:head>
+
+<body bgcolor="#E0E0E0">
+	<table align="center" width="1000px" style="min-height: 500px"
+		cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+		<ui:insert name="cabecalho">
+			<tr class="css-cabecalho" style="max-height: 75px">
+				<td>
+					<table cellpadding="0" cellspacing="0">
+						<tr>
+							<td style="vertical-align: middle; max-height: 75px">
+								<h:graphicImage url="/images/logo.png" style="padding-left: 5px;"/>
+							</td>
+							<td width="100%" style="text-align: right; max-height: 75px">
+								<h:form	style="padding-top: 10px; padding-right: 10px; height: 100%">
+									<table align="right" style="text-align: right; height: 65px" cellpadding="0"
+										cellspacing="">
+										<tr style="vertical-align: bottom; height: 100%;">
+											<td align="right">Usuário: <span
+												style="font-size: 16px; font-weight: bold; font-style: italic; padding-bottom: 10px">Nome
+													do Usuario (Bean)</span>
+											</td>
+										</tr>
+									</table>
+								</h:form>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</ui:insert>
+		<tr>
+			<td><p:toolbar>
+					<ui:insert name="barra_status_topo">
+						<p:toolbarGroup align="left">
+							<h:form>
+								<table>
+									<tr valign="middle" style="text-align: left;">
+										<td style="padding-right: 8px;"><h:commandLink
+												styleClass="css-link-menu">
+												<!-- Imagem -->
+												<h:outputText value="Saldo" />
+											</h:commandLink></td>
+
+										<td style="padding-right: 8px;"><h:commandLink
+												styleClass="css-link-menu">
+												<!-- Imagem -->
+												<h:outputText value="Extrato" />
+											</h:commandLink></td>
+									</tr>
+								</table>
+							</h:form>
+						</p:toolbarGroup>
+					</ui:insert>
+				</p:toolbar></td>
+		</tr>
+		<tr valign="top" style="vertical-align: center;">
+			<td>
+				<table width="100%" cellpadding="0" cellspacing="0">
+					<tr valign="top">
+						<td width="1000">
+								<ui:insert name="miolo">
+									<div style="padding: 5px">
+										<div style="width: 100%; padding-top: 5px">
+											<ui:insert name="tituloConteudo">Título</ui:insert>
+										</div>
+										<div style="width: 100%; padding-top: 5px">
+											<ui:insert name="conteudo">Conteúdo</ui:insert>
+										</div>
+									</div>
+								</ui:insert>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr class="css-rodape">
+			<td><ui:insert name="rodape">
+					<table style="width: 100%">
+						<tr>
+							<td>
+								<div style="text-align: center; float: center;">
+									<h:outputText value="PagSeguro Web Manager" />
+
+								</div>
+								<div style="float: right;">
+									<h:outputText value="Development Version" />
+								</div>
+							</td>
+						</tr>
+					</table>
+				</ui:insert></td>
+		</tr>
+	</table>
+</body>
+</html>
