@@ -21,7 +21,9 @@ public class Main {
 
 	public static void main(String[] args) {
 		 try {  
-			 
+			 if (System.getSecurityManager() == null) {
+		            System.setSecurityManager(new SecurityManager());
+		        }
 			  	GerenciadorReservas gerenciadorReservas = new GerenciadorReservas();
 			  	IGerenciadorReservas gerenciadorStub = (IGerenciadorReservas) UnicastRemoteObject.exportObject(gerenciadorReservas, 0);
 			  	
@@ -32,9 +34,9 @@ public class Main {
 			  	IReserva reservaStub = (IReserva)UnicastRemoteObject.exportObject(reserva, 0);
 			  	
 			  	Registry registry = LocateRegistry.getRegistry();
-			  	registry.rebind("rmi://localhost/Gerenciador", gerenciadorStub);
-			  	registry.rebind("rmi://localhost/Laboratorio", laboratorioStub);
-			  	registry.rebind("rmi://localhost/Reserva", reservaStub);		  	
+			  	registry.rebind("Gerenciador", gerenciadorStub);
+			  	registry.rebind("Laboratorio", laboratorioStub);
+			  	registry.rebind("Reserva", reservaStub);		  	
 			  	
 	            System.out.println("Servidor Pronto!");
 	            

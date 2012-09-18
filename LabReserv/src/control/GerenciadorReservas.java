@@ -4,6 +4,7 @@ package control;
 
 
 import interfaces.IGerenciadorReservas;
+import interfaces.IReserva;
 
 import java.io.Serializable;
 import java.rmi.RemoteException;
@@ -13,10 +14,8 @@ import java.util.List;
 
 import model.Laboratorio;
 import model.Reserva;
-
-import dados.DataBase;
-
 import util.Codigos;
+import dados.DataBase;
 
 
 public class GerenciadorReservas implements IGerenciadorReservas,Serializable {
@@ -47,7 +46,7 @@ public class GerenciadorReservas implements IGerenciadorReservas,Serializable {
 			return Codigos.RESERVA_ERRO;
 	}
 	
-	public String cancelarReserva(Reserva reserva) throws RemoteException{		
+	public String cancelarReserva(IReserva reserva) throws RemoteException{		
 		reserva.setStatusReserva(Reserva.STATUS_CANCELADA);
 		Integer statusCancelamento = DataBase.atualizarReserva(reserva);
 				
@@ -83,6 +82,11 @@ public class GerenciadorReservas implements IGerenciadorReservas,Serializable {
 				retorno.add(reserva);
 		}		
 		return retorno;
+	}
+
+	@Override
+	public List obterTodosLaboratorios() throws RemoteException {
+		return DataBase.obterTodosLaboratorios();
 	}
 	
 
