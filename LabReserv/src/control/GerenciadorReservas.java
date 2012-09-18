@@ -86,10 +86,11 @@ public class GerenciadorReservas implements IGerenciadorReservas, Serializable {
 		StringBuffer reservasToString = new StringBuffer();
 		for (Reserva reserva : todasReservas) {
 			reservasToString.append("Código: "+reserva.getCodReserva().toString()+
-					" Início: "+reserva.getInicioReserva().toString()+
-					" Fim: "+reserva.getFimReserva().toString()+
-					" Laboratório: "+reserva.getLaboratorioReservado().getNomeLaboratorio()+
-					" Status: "+reserva.statusToText(reserva.getStatusReserva()));
+					"\t Usuário: "+reserva.getUsuarioSolicitante()+
+					"\t Início: "+reserva.getInicioReserva().get(Calendar.DAY_OF_MONTH)+"/"+reserva.getInicioReserva().get(Calendar.MONTH)+"/"+reserva.getInicioReserva().get(Calendar.YEAR)+" "+reserva.getInicioReserva().get(Calendar.HOUR_OF_DAY)+":00"+
+					"\t Fim: "+reserva.getFimReserva().get(Calendar.DAY_OF_MONTH)+"/"+reserva.getFimReserva().get(Calendar.MONTH)+"/"+reserva.getFimReserva().get(Calendar.YEAR)+" "+reserva.getFimReserva().get(Calendar.HOUR_OF_DAY)+":00"+
+					"\t Laboratório: "+reserva.getLaboratorioReservado().getNomeLaboratorio()+
+					"\t Status: "+reserva.statusToText(reserva.getStatusReserva())+"\n");
 		}
 		
 		return reservasToString.toString();
@@ -109,10 +110,11 @@ public class GerenciadorReservas implements IGerenciadorReservas, Serializable {
 		StringBuffer reservasToString = new StringBuffer();
 		for (Reserva reserva : retorno) {
 			reservasToString.append("Código: "+reserva.getCodReserva().toString()+
-					" Início: "+reserva.getInicioReserva().toString()+
-					" Fim: "+reserva.getFimReserva().toString()+
-					" Laboratório: "+reserva.getLaboratorioReservado().getNomeLaboratorio()+
-					" Status: "+reserva.statusToText(reserva.getStatusReserva()));
+					"\t Usuário: "+reserva.getUsuarioSolicitante()+
+					"\t Início: "+reserva.getInicioReserva().get(Calendar.DAY_OF_MONTH)+"/"+reserva.getInicioReserva().get(Calendar.MONTH)+"/"+reserva.getInicioReserva().get(Calendar.YEAR)+" "+reserva.getInicioReserva().get(Calendar.HOUR_OF_DAY)+":00"+
+					"\t Fim: "+reserva.getFimReserva().get(Calendar.DAY_OF_MONTH)+"/"+reserva.getFimReserva().get(Calendar.MONTH)+"/"+reserva.getFimReserva().get(Calendar.YEAR)+" "+reserva.getFimReserva().get(Calendar.HOUR_OF_DAY)+":00"+
+					"\t Laboratório: "+reserva.getLaboratorioReservado().getNomeLaboratorio()+
+					"\t Status: "+reserva.statusToText(reserva.getStatusReserva())+"\n");
 		}
 		
 		return reservasToString.toString();		
@@ -131,10 +133,11 @@ public class GerenciadorReservas implements IGerenciadorReservas, Serializable {
 		StringBuffer reservasToString = new StringBuffer();
 		for (Reserva reserva : retorno) {
 			reservasToString.append("Código: "+reserva.getCodReserva().toString()+
-					" Início: "+reserva.getInicioReserva().toString()+
-					" Fim: "+reserva.getFimReserva().toString()+
-					" Laboratório: "+reserva.getLaboratorioReservado().getNomeLaboratorio()+
-					" Status: "+reserva.statusToText(reserva.getStatusReserva()));
+					"\t Usuário: "+reserva.getUsuarioSolicitante()+
+					"\t Início: "+reserva.getInicioReserva().get(Calendar.DAY_OF_MONTH)+"/"+reserva.getInicioReserva().get(Calendar.MONTH)+"/"+reserva.getInicioReserva().get(Calendar.YEAR)+" "+reserva.getInicioReserva().get(Calendar.HOUR_OF_DAY)+":00"+
+					"\t Fim: "+reserva.getFimReserva().get(Calendar.DAY_OF_MONTH)+"/"+reserva.getFimReserva().get(Calendar.MONTH)+"/"+reserva.getFimReserva().get(Calendar.YEAR)+" "+reserva.getFimReserva().get(Calendar.HOUR_OF_DAY)+":00"+
+					"\t Laboratório: "+reserva.getLaboratorioReservado().getNomeLaboratorio()+
+					"\t Status: "+reserva.statusToText(reserva.getStatusReserva())+"\n");
 		}
 		
 		return reservasToString.toString();
@@ -147,7 +150,7 @@ public class GerenciadorReservas implements IGerenciadorReservas, Serializable {
 		StringBuffer reservasToString = new StringBuffer();
 		for (Laboratorio laboratorio : todosLaboratorio) {
 			reservasToString.append("Código: "+laboratorio.getCodLaboratorio()+
-					" Descrição: "+laboratorio.getNomeLaboratorio());
+					"\t Descrição: "+laboratorio.getNomeLaboratorio()+"\n");
 		}
 		
 		return reservasToString.toString();
@@ -170,10 +173,11 @@ public class GerenciadorReservas implements IGerenciadorReservas, Serializable {
 		StringBuffer reservasToString = new StringBuffer();
 		for (Reserva reserva : retorno) {
 			reservasToString.append("Código: "+reserva.getCodReserva().toString()+
-					" Início: "+reserva.getInicioReserva().toString()+
-					" Fim: "+reserva.getFimReserva().toString()+
-					" Laboratório: "+reserva.getLaboratorioReservado().getNomeLaboratorio()+
-					" Status: "+reserva.statusToText(reserva.getStatusReserva()));
+					"\t Usuário: "+reserva.getUsuarioSolicitante()+
+					"\t Início: "+reserva.getInicioReserva().get(Calendar.DAY_OF_MONTH)+"/"+reserva.getInicioReserva().get(Calendar.MONTH)+"/"+reserva.getInicioReserva().get(Calendar.YEAR)+" "+reserva.getInicioReserva().get(Calendar.HOUR_OF_DAY)+":00"+
+					"\t Fim: "+reserva.getFimReserva().get(Calendar.DAY_OF_MONTH)+"/"+reserva.getFimReserva().get(Calendar.MONTH)+"/"+reserva.getFimReserva().get(Calendar.YEAR)+" "+reserva.getFimReserva().get(Calendar.HOUR_OF_DAY)+":00"+
+					"\t Laboratório: "+reserva.getLaboratorioReservado().getNomeLaboratorio()+
+					"\t Status: "+reserva.statusToText(reserva.getStatusReserva())+"\n");
 		}
 		
 		return reservasToString.toString();
