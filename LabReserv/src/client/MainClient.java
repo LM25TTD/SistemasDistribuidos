@@ -1,6 +1,5 @@
 package client;
 
-import java.rmi.RemoteException;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Scanner;
@@ -35,6 +34,7 @@ public class MainClient {
 					System.out.println("\n--------------Resultados--------------\n");
 					System.out.println(client.obterTodasReservas(diaBusca));
 					menuReturn();
+					clearScree();
 				} catch (Exception e) {
 					System.out.println("Valor inválido foi inserido!");
 					e.printStackTrace();
@@ -67,7 +67,8 @@ public class MainClient {
 					String codLab = scan.next();
 										
 					System.out.println(client.criarReserva(usuarioSolicitante, horaInicial, horaFinal, codLab));
-					menuReturn();	
+					menuReturn();
+					clearScree();
 				} catch (Exception e) {
 					System.out.println("Valor inválido foi inserido!");
 					e.printStackTrace();
@@ -81,6 +82,7 @@ public class MainClient {
 					System.out.print("\n Resposta: ");
 					System.out.println(client.cancelarReserva(codReserva));
 					menuReturn();
+					clearScree(); 
 
 				} catch (Exception e) {
 					System.out.println("Valor inválido foi inserido!");
@@ -92,6 +94,7 @@ public class MainClient {
 					System.out.println("\n--------------Resultados--------------\n");
 					System.out.println(client.getGerenciador().obterTodosLaboratorios());
 					menuReturn();
+					clearScree(); 
 				} catch (Exception e) {
 					System.out.println("Valor inválido foi inserido!");
 					e.printStackTrace();
@@ -109,6 +112,10 @@ public class MainClient {
 		}
 	}
 
+	public static void clearScree(){
+		for (int i = 0; i < 100; ++i)    
+			System.out.println();   
+	}
 	
 	public static  int initialScreen() {
 		System.out.println("\n\n ==== LABORATÓRIO REMOTO COM JAVA RMI ===");
