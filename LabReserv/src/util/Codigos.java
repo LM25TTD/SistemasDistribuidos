@@ -1,5 +1,6 @@
 package util;
 
+
 public class Codigos {
 	public static final Integer ADD_SUCESSO=1;
 	public static final Integer ADD_JA_EXISTE=2;

@@ -1,19 +1,25 @@
 package control;
 
+
+
+
 import interfaces.IGerenciadorReservas;
 
+import java.io.Serializable;
 import java.rmi.RemoteException;
-import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
 import model.Laboratorio;
 import model.Reserva;
-import util.Codigos;
-import basedados.DataBase;
 
-public class GerenciadorReservas extends UnicastRemoteObject implements IGerenciadorReservas {
+import dados.DataBase;
+
+import util.Codigos;
+
+
+public class GerenciadorReservas implements IGerenciadorReservas,Serializable {
 
 	
 	private static final long serialVersionUID = -4641105449911966499L;
@@ -23,7 +29,6 @@ public class GerenciadorReservas extends UnicastRemoteObject implements IGerenci
 	}
 	
 	public String criarReserva(String usuarioSolicitante, Calendar inicioReserva, Calendar fimReserva, String codLaboratorio) throws RemoteException{
-		
 		List<Reserva> reservasCadastradas = DataBase.obterTodasReservas();
 		
 		for (Reserva reservaBase : reservasCadastradas) {

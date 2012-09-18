@@ -1,12 +1,15 @@
 package model;
 
+
+
+
 import interfaces.IReserva;
 
+import java.io.Serializable;
 import java.rmi.RemoteException;
-import java.rmi.server.UnicastRemoteObject;
 import java.util.Calendar;
 
-public class Reserva extends UnicastRemoteObject implements IReserva{
+public class Reserva implements IReserva,Serializable{
 	
 	private static final long serialVersionUID = -4503462265541015065L;
 	public static final Integer STATUS_ATIVA=1;

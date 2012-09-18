@@ -1,13 +1,16 @@
 package model;
 
+
+
 import interfaces.ILaboratorio;
 
+import java.io.Serializable;
 import java.rmi.RemoteException;
-import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Laboratorio extends UnicastRemoteObject  implements ILaboratorio {
+
+public class Laboratorio  implements ILaboratorio,Serializable {
 	
 	
 	/**

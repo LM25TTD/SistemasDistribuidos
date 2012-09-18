@@ -1,10 +1,12 @@
 package interfaces;
 
+
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.List;
 
 import model.Reserva;
+
 
 public interface ILaboratorio extends Remote{
 	
