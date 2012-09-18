@@ -19,7 +19,7 @@ public class AllocationManager extends UnicastRemoteObject implements IAllocatio
 	 */
 	private static final long serialVersionUID = 7283788361133955894L;
 
-	protected AllocationManager() throws RemoteException {
+	public AllocationManager() throws RemoteException {
 		super();
 	}
 	

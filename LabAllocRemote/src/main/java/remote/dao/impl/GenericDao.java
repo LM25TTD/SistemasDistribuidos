@@ -4,17 +4,13 @@ import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.List;
 
-import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.criterion.Expression;
-import org.hibernate.criterion.MatchMode;
-import org.hibernate.criterion.Order;
 
 import remote.dao.IGenericDao;
 
 
-@SuppressWarnings(value={"deprecation","rawtypes"})
+@SuppressWarnings(value={"rawtypes"})
 public class GenericDao implements IGenericDao{
 	
 	public GenericDao (SessionFactory sessionFactory){
@@ -31,10 +27,7 @@ public class GenericDao implements IGenericDao{
 		this.sessionFactory = sessionFactory;
 	}
 	
-	public void clearSession(){
-	     this.sessionFactory.getCurrentSession().flush();
-	     this.sessionFactory.getCurrentSession().clear();
-	   }
+	
 
 	
 	/**
@@ -167,115 +160,7 @@ public class GenericDao implements IGenericDao{
 		return this.sessionFactory.getCurrentSession().createCriteria(classe).list();
 	}
 	
-	/**
-	 * Listagem dos objetos da classe informada
-	 * @param c Classe dos objetos
-	 * @param campoOrderBy Nome do atributo que ser� ordenado
-	 * @param order Ordena��o da lista. Informe 1 para ascendente e outro valor para descendente 
-	 * @return listagem dos objetos da classe informada 
-	 */
-	public List getAll(Class classe, String campoOrderBy, int order) {
-		this.sessionFactory.getCurrentSession().beginTransaction();
-		Criteria cri = this.sessionFactory.getCurrentSession().createCriteria(classe);
-		if (campoOrderBy != null && campoOrderBy.trim().length() > 0){
-			if (order == 1)
-				cri.addOrder(Order.asc(campoOrderBy));
-			else cri.addOrder(Order.desc(campoOrderBy));
-		}
-		return cri.list();
-
-	}
 	
-	/**
-	 * Listagem dos objetos da classe informada com paginaca
-	 * @param c - Classe dos objetos
-	 * @param firstResult - Inicio da listagem
-	 * @param maxResults - quantidade maxima de objetos retornados
-	 * @return listagem dos objetos da classe informada 
-	 */
-	public List getAll(Class classe, int firstResult, int maxResults) {
-		this.sessionFactory.getCurrentSession().beginTransaction();
-		Criteria criteria = this.sessionFactory.getCurrentSession().createCriteria(classe);
-		criteria.setFirstResult(firstResult);
-		criteria.setMaxResults(maxResults);
-		return criteria.list();
-	}
-	
-	/**
-	 * Listagem dos objetos da classe informada com paginaca
-	 * @param c - Classe dos objetos
-	 * @param firstResult - Inicio da listagem
-	 * @param maxResults - quantidade maxima de objetos retornados
-	 * @param campoOrderBy Nome do atributo que ser� ordenado
-	 * @param order Ordena��o da lista. Informe 1 para ascendente e outro valor para descendente 
-	 * @return listagem dos objetos da classe informada 
-	 */
-    public List getAll(Class classe, int firstResult, int maxResults, String campoOrderBy, int order) {
-    	this.sessionFactory.getCurrentSession().beginTransaction();
-		Criteria criteria = this.sessionFactory.getCurrentSession().createCriteria(classe);
-		criteria.setFirstResult(firstResult);
-		criteria.setMaxResults(maxResults);
-		if (campoOrderBy != null && campoOrderBy.trim().length() > 0){
-			if (order == 1)
-				criteria.addOrder(Order.asc(campoOrderBy));
-			else criteria.addOrder(Order.desc(campoOrderBy));
-		}
-		return criteria.list();	
-	}	
-	
-	/**
-	 * Listagem por filtros
-	 * @param c - Classe dos objetos
-	 * @param filtros matriz que contem na primeira coluna o campo a ser filtrado e na segunda coluna o dado do filtro 
-	 * @return listagem retornada da consulta com os filtros
-	 */
-	public List getAll(Class classe, String [][]filtros) {
-		this.sessionFactory.getCurrentSession().beginTransaction();
-		Criteria cri = this.sessionFactory.getCurrentSession().createCriteria(classe);
-		for (int i=0;i< filtros.length;i++){
-			cri.add(Expression.like(filtros[i][0], filtros[i][1], MatchMode.ANYWHERE).ignoreCase());
-		}
-		return cri.list();		
-	}
-	
-	/**
-	 * Listagem por filtros
-	 * @param c - Classe dos objetos
-	 * @param filtros matriz que contem na primeira coluna o campo a ser filtrado e na segunda coluna o dado do filtro 
-	 * @return listagem retornada da consulta com os filtros
-	 */
-	public List getAll(Class classe, String [][]filtros, String campoOrderBy, int order) {
-		this.sessionFactory.getCurrentSession().beginTransaction();
-		Criteria cri = this.sessionFactory.getCurrentSession().createCriteria(classe);
-		for (int i=0;i< filtros.length;i++){
-			cri.add(Expression.like(filtros[i][0],filtros[i][1],MatchMode.ANYWHERE).ignoreCase());
-		}
-		if (campoOrderBy != null && campoOrderBy.trim().length() > 0){
-			if (order == 1)
-				cri.addOrder(Order.asc(campoOrderBy));
-			else cri.addOrder(Order.desc(campoOrderBy));
-		}
-		
-		return cri.list();	
-	}	
-		
-	/**
-	 * Recupera o Objeto na base de dados
-	 * @param objeto Objeto a ser recuperado 
-	 * */
-    public void getRefresh(Object objeto){
-    	this.sessionFactory.getCurrentSession().beginTransaction();
-		this.sessionFactory.getCurrentSession().refresh(objeto);
-				
-	}	
-	
-		
-	/**
-	 * Responsável pelo tratamento de erros
-	 * @param ex - Exceção levantada pelo sistema.
-	 * @param acao - Ação atual do sistema: inclusão, alteração, exclusão, etc.
-	 * @throws Exception
-	 */
 	private void tratarErro(Exception ex, String acao) throws Exception{
 		String msgException = "";
 		

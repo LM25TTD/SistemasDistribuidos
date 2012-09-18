@@ -1,26 +1,20 @@
 package remote.main;
 
-import java.util.List;
+import java.rmi.Naming;
 
-import org.hibernate.Session;
-
-import remote.dao.impl.GenericDao;
-import remote.dao.impl.LabDao;
-import remote.model.impl.Lab;
-import remote.util.HibernateUtil;
+import remote.controller.IAllocationManager;
+import remote.controller.impl.AllocationManager;
 
 public class Startup {
 	
 	public static void main(String[] args) {
-		 //Session session = HibernateUtil.getSessionFactory().openSession();
-		 LabDao labDao = new LabDao();
-		 
-		 @SuppressWarnings("unchecked")
-		List<Lab> laboratories = labDao.getAll(Lab.class);
-		 
-		 for (Lab lab : laboratories) {
-			System.out.println(lab.getNameLab());
-		}
+		  try {  
+			  	IAllocationManager allocationController = new AllocationManager();
+	            Naming.rebind("rmi://localhost:1099/AllocationController", allocationController);  
+	        }  
+	        catch( Exception e ) {  
+	            System.out.println( "Trouble: " + e );  
+	        }  
 		 		 
 	}
 
