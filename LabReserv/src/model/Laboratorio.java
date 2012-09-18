@@ -41,25 +41,25 @@ public class Laboratorio  implements ILaboratorio,Serializable {
 		this.reservasLaboratorio=reservasLaboratorio;
 	}
 	
-	public String getCodLaboratorio() throws RemoteException {
+	public String getCodLaboratorio() {
 		return codLaboratorio;
 	}
-	public void setCodLaboratorio(String codLaboratorio) throws RemoteException {
+	public void setCodLaboratorio(String codLaboratorio) {
 		this.codLaboratorio = codLaboratorio;
 	}
 	
-	public String getNomeLaboratorio() throws RemoteException {
+	public String getNomeLaboratorio()  {
 		return nomeLaboratorio;
 	}
 
-	public void setNomeLaboratorio(String nomeLaboratorio) throws RemoteException {
+	public void setNomeLaboratorio(String nomeLaboratorio)  {
 		this.nomeLaboratorio = nomeLaboratorio;
 	}
 
-	public List<Reserva> getReservasLaboratorio() throws RemoteException {
+	public List<Reserva> getReservasLaboratorio()  {
 		return reservasLaboratorio;
 	}
-	public void setReservasLaboratorio(List<Reserva> reservasLaboratorio) throws RemoteException {
+	public void setReservasLaboratorio(List<Reserva> reservasLaboratorio)  {
 		this.reservasLaboratorio = reservasLaboratorio;
 	}
 	

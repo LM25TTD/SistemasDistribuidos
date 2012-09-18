@@ -41,40 +41,40 @@ public class Reserva implements IReserva,Serializable{
 	private Integer statusReserva;
 	private Laboratorio laboratorioReservado;
 
-	public Integer getCodReserva() throws RemoteException{
+	public Integer getCodReserva() {
 		return codReserva;
 	}
-	public void setCodReserva(Integer codReserva) throws RemoteException{
+	public void setCodReserva(Integer codReserva) {
 		this.codReserva = codReserva;
 	}
-	public String getUsuarioSolicitante() throws RemoteException{
+	public String getUsuarioSolicitante(){
 		return usuarioSolicitante;
 	}
-	public void setUsuarioSolicitante(String usuarioSolicitante) throws RemoteException{
+	public void setUsuarioSolicitante(String usuarioSolicitante) {
 		this.usuarioSolicitante = usuarioSolicitante;
 	}
-	public Calendar getInicioReserva() throws RemoteException{
+	public Calendar getInicioReserva() {
 		return inicioReserva;
 	}
-	public void setInicioReserva(Calendar inicioReserva) throws RemoteException{
+	public void setInicioReserva(Calendar inicioReserva) {
 		this.inicioReserva = inicioReserva;
 	}
-	public Calendar getFimReserva() throws RemoteException{
+	public Calendar getFimReserva() {
 		return fimReserva;
 	}
-	public void setFimReserva(Calendar fimReserva) throws RemoteException{
+	public void setFimReserva(Calendar fimReserva) {
 		this.fimReserva = fimReserva;
 	}
-	public Integer getStatusReserva() throws RemoteException{
+	public Integer getStatusReserva() {
 		return statusReserva;
 	}
-	public void setStatusReserva(Integer statusReserva) throws RemoteException{
+	public void setStatusReserva(Integer statusReserva) {
 		this.statusReserva = statusReserva;
 	}
-	public Laboratorio getLaboratorioReservado() throws RemoteException{
+	public Laboratorio getLaboratorioReservado(){
 		return laboratorioReservado;
 	}
-	public void setLaboratorioReservado(Laboratorio laboratorioReservado) throws RemoteException{
+	public void setLaboratorioReservado(Laboratorio laboratorioReservado){
 		this.laboratorioReservado = laboratorioReservado;
 	}
 	
