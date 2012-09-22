@@ -13,9 +13,11 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import remote.model.IAllocation;
+
 @Entity
 @Table
-public class Allocation implements Serializable {
+public class Allocation implements 	IAllocation, Serializable {
 	
 	/**
 	 * 

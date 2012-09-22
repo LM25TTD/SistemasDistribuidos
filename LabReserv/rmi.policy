@@ -1,0 +1,3 @@
+grant codeBase "file:C:/Users/Leandro/SistemasDistribuidos/SistemasDistribuidos/LabReserv/-" {
+    permission java.security.AllPermission;
+  };

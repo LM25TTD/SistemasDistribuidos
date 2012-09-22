@@ -92,21 +92,7 @@
 		</executions>
       </plugin>   
         
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>rmic-maven-plugin</artifactId>
-        <version>1.2.0</version>
-        <executions>
-          <execution>
-            <id>rmic-process-classes</id>
-            <goals>
-              <goal>rmic</goal>
-            </goals>            
-          </execution>
-        </executions>
-      </plugin>
-      
-      
+  
      
      </plugins>
     

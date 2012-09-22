@@ -2,7 +2,6 @@ package remote.controller.impl;
 
 import java.io.Serializable;
 import java.rmi.RemoteException;
-import java.rmi.server.UnicastRemoteObject;
 import java.util.Date;
 import java.util.List;
 
@@ -12,7 +11,7 @@ import remote.dao.impl.LabDao;
 import remote.model.impl.Allocation;
 import remote.model.impl.Lab;
 
-public class AllocationManager extends UnicastRemoteObject implements IAllocationManager,Serializable {
+public class AllocationManager  implements IAllocationManager,Serializable {
 
 	/**
 	 * 

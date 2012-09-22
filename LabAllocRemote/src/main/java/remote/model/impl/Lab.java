@@ -15,9 +15,11 @@ import javax.persistence.Table;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
+import remote.model.ILab;
+
 @Entity
 @Table
-public class Lab implements Serializable{
+public class Lab implements ILab,Serializable{
 	
 	/**
 	 * 
